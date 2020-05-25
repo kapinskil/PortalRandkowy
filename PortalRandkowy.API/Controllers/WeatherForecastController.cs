@@ -8,7 +8,8 @@ using Microsoft.Extensions.Logging;
 namespace PortalRandkowy.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //http://localhost:5000/api
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
