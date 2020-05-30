@@ -36,5 +36,12 @@ namespace PortalRandkowy.API.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<string[]> Get(int id)
+        {
+            return new string[] {"value","value2","value3"};
+        }
+
     }
 }
