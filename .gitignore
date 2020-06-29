@@ -1,6 +1,7 @@
 .vscode
 bin
 obj
+*.db*
 *.db
 *.pdb
 wwwroot
