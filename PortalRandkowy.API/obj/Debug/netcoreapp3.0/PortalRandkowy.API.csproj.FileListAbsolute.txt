@@ -60,3 +60,7 @@ C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcorea
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.csproj.CopyComplete
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
