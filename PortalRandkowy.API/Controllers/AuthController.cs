@@ -27,6 +27,7 @@ namespace PortalRandkowy.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         { 
+
              userForRegisterDto.UserName = userForRegisterDto.UserName.ToLower();
 
              if(await _repository.UserExists(userForRegisterDto.UserName))
