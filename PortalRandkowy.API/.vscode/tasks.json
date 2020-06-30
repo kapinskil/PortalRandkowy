@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/PortalRandkowy.API/PortalRandkowy.API.csproj",
+                "${workspaceFolder}/PortalRandkowy.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/PortalRandkowy.API/PortalRandkowy.API.csproj",
+                "${workspaceFolder}/PortalRandkowy.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/PortalRandkowy.API/PortalRandkowy.API.csproj",
+                "${workspaceFolder}/PortalRandkowy.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
