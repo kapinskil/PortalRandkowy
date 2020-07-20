@@ -29,4 +29,8 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
+
+  cancelRegisterMode(registerMode: boolean){
+    this.registerMode = registerMode;
+  }
 }
