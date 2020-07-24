@@ -26,8 +26,7 @@ export class NavComponent implements OnInit {
   }
 
   loggedin(){
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this.authService.logedin();
   }
 
   logout(){
