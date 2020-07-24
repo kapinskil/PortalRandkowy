@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+declare let alertify: any;
 
 
 @Component({
@@ -20,9 +21,9 @@ export class RegisterComponent implements OnInit {
 
   register(){
     this.authService.register(this.model).subscribe(() => {
-      console.log("rejestracja udana");
+      alertify.success("rejestracja udana");
     }, error => {
-      console.log(error);
+      alertify.error('wystąpił błąd rejestracji');
     });
   }
 
