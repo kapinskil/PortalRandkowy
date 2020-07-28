@@ -5,58 +5,57 @@ namespace PortalRandkowy.API.Models
 {
     public class User
     {
-        public  int Id { get; set; }
+        public int Id { get; set; }
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt {get;set;}
+        public byte[] PasswordSalt { get; set; }
 
-        //basic information about user
 
-        public string Gender { get; set; }
-        public DateTime DateodBirth { get; set; }
-        public string ZodiacSing { get; set; }
-        public DateTime Created { get; set; }
+        // Postawowe informacje
+        public string Gender { get; set; }          // Płeć
+        public DateTime DateOfBirth { get; set; }   // Data urodzenia
+        public string ZodiacSign { get; set; }      // Znak zodiaku
+        public DateTime Created { get; set; }       // Data utworzenia/rejestracji
+        public DateTime LastActive { get; set; }    // Ostatnia aktywność
+        public string City { get; set; }            // Miasto
+        public string Country { get; set; }         // Kraj
 
-        public DateTime LastActive { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
+        // Zakładka Info
+        public string Growth { get; set; }          // Wygląd - wzrost
+        public string EyeColor { get; set; }        // Wygląd - kolor oczu
+        public string HairColor { get; set; }       // Wygląd - kolor włosów
+        public string MartialStatus { get; set; }   // Formalne - stan cywilny
+        public string Education { get; set; }       // Formalne - wykształcenie
+        public string Profession { get; set; }      // Formalne - zawód
+        public string Children { get; set; }        // Dzieci
+        public string Languages { get; set; }       // Języki obce
 
-        //additional information about user
-        //overlap info
-        public string Growth { get; set; }
-        public string EyeColor { get; set; }
-        public string HairColor { get; set; }
-        public string MartialStatus { get; set; }
-        public string Education { get; set; }
-        public string Profession { get; set; }
 
-        public string Children { get; set; }
-        public string Languages { get; set; }
+        // Zakłada  O mnie
+        public string Motto { get; set; }           // Motto życiowe
+        public string Description { get; set; }     // Opis
+        public string Personality { get; set; }     // Osobowość
+        public string LookingFor { get; set; }      // Szukam
 
-        //overlap About me
-        public int Motto { get; set; }
-        public string Description { get; set; }
-        public string Presonality { get; set; }
-        public string LookingFor { get; set; }
 
-        //overlap passions, interests
-        public string Interests { get; set; }
-        public string FreeTime { get; set; }
-        public string Sport { get; set; }
-        public string Movies { get; set; }
-        public string Music { get; set; }
+        // Zakłaka Pasje, zaiteresowania
+        public string Interests { get; set; }       // Zainteresowania
+        public string FreeTime { get; set; }        // Czas wolny
+        public string Sport { get; set; }           // Sport
+        public string Movies { get; set; }          // Filmy
+        public string Music { get; set; }           // Muzyka
 
-        //preferences
-        public string ILike { get; set; }
-        public string IDoNotLike { get; set; }
-        public string MakesMyLaught { get; set; }
-        public string ItFeelsBestIn { get; set; }
-        public string FriendsWoulldDescribeMe { get; set; }
 
-        //pictures
-        public ICollection<Photo> Photos { get; set; }
+        // Zakładka Preferencje
+        public string ILike { get; set; }           // Lubię
+        public string IdoNotLike { get; set; }      // Nie lubię
+        public string MakesMeLaugh { get; set; }    // Rozśmiesza mnie
+        public string ItFeelsBestIn { get; set; }   // Najlepiej czuję się w
+        public string FriendeWouldDescribeMe { get; set; }  // Przyjaciele opisali by mnie
 
+
+        // Zakładka zdjecia
+        public ICollection<Photo> Photos { get; set; }      // Zdjęcia użytkownika
+ 
     }
-
-
 }

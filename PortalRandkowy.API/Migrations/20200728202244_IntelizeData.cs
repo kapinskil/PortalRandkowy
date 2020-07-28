@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PortalRandkowy.API.Migrations
 {
-    public partial class initialCommit : Migration
+    public partial class IntelizeData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,8 +17,8 @@ namespace PortalRandkowy.API.Migrations
                     PasswordHash = table.Column<byte[]>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true),
                     Gender = table.Column<string>(nullable: true),
-                    DateodBirth = table.Column<DateTime>(nullable: false),
-                    ZodiacSing = table.Column<string>(nullable: true),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    ZodiacSign = table.Column<string>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false),
                     LastActive = table.Column<DateTime>(nullable: false),
                     City = table.Column<string>(nullable: true),
@@ -31,9 +31,9 @@ namespace PortalRandkowy.API.Migrations
                     Profession = table.Column<string>(nullable: true),
                     Children = table.Column<string>(nullable: true),
                     Languages = table.Column<string>(nullable: true),
-                    Motto = table.Column<int>(nullable: false),
+                    Motto = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Presonality = table.Column<string>(nullable: true),
+                    Personality = table.Column<string>(nullable: true),
                     LookingFor = table.Column<string>(nullable: true),
                     Interests = table.Column<string>(nullable: true),
                     FreeTime = table.Column<string>(nullable: true),
@@ -41,10 +41,10 @@ namespace PortalRandkowy.API.Migrations
                     Movies = table.Column<string>(nullable: true),
                     Music = table.Column<string>(nullable: true),
                     ILike = table.Column<string>(nullable: true),
-                    IDoNotLike = table.Column<string>(nullable: true),
-                    MakesMyLaught = table.Column<string>(nullable: true),
+                    IdoNotLike = table.Column<string>(nullable: true),
+                    MakesMeLaugh = table.Column<string>(nullable: true),
                     ItFeelsBestIn = table.Column<string>(nullable: true),
-                    FriendsWoulldDescribeMe = table.Column<string>(nullable: true)
+                    FriendeWouldDescribeMe = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,7 +74,8 @@ namespace PortalRandkowy.API.Migrations
                     Description = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
                     IsMain = table.Column<bool>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
+                    public_id = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,7 +85,7 @@ namespace PortalRandkowy.API.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -9,8 +9,8 @@ using PortalRandkowy.API.Data;
 namespace PortalRandkowy.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200727185824_initialCommit")]
-    partial class initialCommit
+    [Migration("20200728202244_IntelizeData")]
+    partial class IntelizeData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,8 +36,11 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("public_id")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -64,7 +67,7 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DateodBirth")
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -79,7 +82,7 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<string>("FreeTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FriendsWoulldDescribeMe")
+                    b.Property<string>("FriendeWouldDescribeMe")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
@@ -91,10 +94,10 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<string>("HairColor")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("IDoNotLike")
+                    b.Property<string>("ILike")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ILike")
+                    b.Property<string>("IdoNotLike")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Interests")
@@ -112,14 +115,14 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<string>("LookingFor")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("MakesMyLaught")
+                    b.Property<string>("MakesMeLaugh")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MartialStatus")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Motto")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Motto")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Movies")
                         .HasColumnType("TEXT");
@@ -133,7 +136,7 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("BLOB");
 
-                    b.Property<string>("Presonality")
+                    b.Property<string>("Personality")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Profession")
@@ -145,7 +148,7 @@ namespace PortalRandkowy.API.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ZodiacSing")
+                    b.Property<string>("ZodiacSign")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -169,9 +172,11 @@ namespace PortalRandkowy.API.Migrations
 
             modelBuilder.Entity("PortalRandkowy.API.Models.Photo", b =>
                 {
-                    b.HasOne("PortalRandkowy.API.Models.User", null)
+                    b.HasOne("PortalRandkowy.API.Models.User", "User")
                         .WithMany("Photos")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
