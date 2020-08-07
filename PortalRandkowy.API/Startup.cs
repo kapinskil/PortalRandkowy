@@ -2,12 +2,15 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using PortalRandkowy.API.Data;
+
 
 namespace PortalRandkowy.API
 {
@@ -24,14 +27,16 @@ namespace PortalRandkowy.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddMvc();
+            services.AddControllers().AddNewtonsoftJson(X=>{X.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;});
             services.AddCors();
             services.AddTransient<Seed>();
-            services.AddScoped<IAuthRepository,AuthRepository>();
-            services.AddScoped<IGenericRepository,GenericRepository>();
-            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IGenericRepository, GenericRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                            .AddJwtBearer(options => {
+                            .AddJwtBearer(options =>
+                            {
                                 options.TokenValidationParameters = new TokenValidationParameters()
                                 {
                                     ValidateIssuerSigningKey = true,

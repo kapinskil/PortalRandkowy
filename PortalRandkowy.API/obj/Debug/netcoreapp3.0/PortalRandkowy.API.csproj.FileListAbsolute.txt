@@ -10,7 +10,6 @@ C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcorea
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.csprojAssemblyReference.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\staticwebassets\PortalRandkowy.API.StaticWebAssets.Manifest.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\staticwebassets\PortalRandkowy.API.StaticWebAssets.xml
-C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.AssemblyInfoInputs.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.AssemblyInfo.cs
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.RazorTargetAssemblyInfo.cache
@@ -68,6 +67,10 @@ C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcorea
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
-C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.csproj.CoreCompileInputs.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.genruntimeconfig.cache
 C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Data\UserSeedData.json
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.csproj.CoreCompileInputs.cache
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\obj\Debug\netcoreapp3.0\PortalRandkowy.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\kapin\source\repos\PortalRandkowy\PortalRandkowy.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
