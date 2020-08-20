@@ -10,7 +10,7 @@ namespace PortalRandkowy.API.Dtos
         public string Username { get; set; }
 
 
-         public string Gender { get; set; }          // Płeć
+        public string Gender { get; set; }          // Płeć
         public DateTime Age { get; set; }           // wiek
         public string ZodiacSign { get; set; }      // Znak zodiaku
         public DateTime Created { get; set; }       // Data utworzenia/rejestracji
@@ -19,7 +19,7 @@ namespace PortalRandkowy.API.Dtos
         public string Country { get; set; }         // Kraj
 
 
-         public string Growth { get; set; }          // Wygląd - wzrost
+        public string Growth { get; set; }          // Wygląd - wzrost
         public string EyeColor { get; set; }        // Wygląd - kolor oczu
         public string HairColor { get; set; }       // Wygląd - kolor włosów
         public string MartialStatus { get; set; }   // Formalne - stan cywilny
@@ -51,7 +51,7 @@ namespace PortalRandkowy.API.Dtos
         public string ItFeelsBestIn { get; set; }   // Najlepiej czuję się w
         public string FriendeWouldDescribeMe { get; set; }  // Przyjac
 
-        public ICollection<Photo> Photos { get; set; }      // Zdjęcia użytkownika
+        public ICollection<PhotosForDitailedDto> Photos { get; set; }      // Zdjęcia użytkownika
 
         public string PhotoUrl { get; set; }
     }
