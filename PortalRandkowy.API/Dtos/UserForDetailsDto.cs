@@ -11,7 +11,7 @@ namespace PortalRandkowy.API.Dtos
 
 
         public string Gender { get; set; }          // Płeć
-        public DateTime Age { get; set; }           // wiek
+        public int Age { get; set; }           // wiek
         public string ZodiacSign { get; set; }      // Znak zodiaku
         public DateTime Created { get; set; }       // Data utworzenia/rejestracji
         public DateTime LastActive { get; set; }    // Ostatnia aktywność
