@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
+import { appRoutes } from './routes';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -12,6 +13,10 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { LikesComponent } from './likes/likes.component';
+import { MessagesComponent } from './messages/messages.component';
+import { RouterModule } from '@angular/router';
+
 
 
 export function tokenGetter(){
@@ -19,12 +24,14 @@ export function tokenGetter(){
 }
 
 @NgModule({
-   declarations: [
+   declarations: [		
       AppComponent,
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      UserListComponent
+      UserListComponent,
+      LikesComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -36,7 +43,8 @@ export function tokenGetter(){
             allowedDomains: ['localhost:5001'],
             disallowedRoutes: []
          }
-      })
+      }),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
