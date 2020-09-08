@@ -12,20 +12,17 @@
       <li class="nav-item" routerLinkActive="router-link-active" >
         <a class="nav-link" [routerLink]="['/wiadomości']" >Wiadomości</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()" >Wyloguj</a>
-      </li>
     </ul>
 
-    <div *ngIf="loggedin()" class="dropdown">
-      <a class="dropdown-toggle text-light">
+    <div *ngIf="loggedin()" class="dropdown" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle>
         Witaj {{authService.decodeToken?.unique_name | titlecase }}
       </a>
     
-      <div class="dropdown-menu">
+      <div class="dropdown-menu mt-4" *dropdownMenu>
         <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edytuj profili</a>
-        <div class="dropdown-divaider"><i class="fa fa-sing-out"></i></div>
-        <a class="dropdown-item" href="#">Wyloguj</a>
+        <div class="dropdown-divaider"></div>
+        <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Wyloguj</a>
       </div>
     </div>
 
