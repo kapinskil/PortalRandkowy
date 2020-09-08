@@ -11,14 +11,12 @@ export class AuthGuard implements CanActivate {
   constructor(private auuthService: AuthService, private router: Router, private alertify: AlertifyService) {}
 
   canActivate(): boolean {
-
-    if(this.auuthService.logedin())
+    if (this.auuthService.logedin())
     {
       return true;
     }
-
-    this.alertify.error('Nie masz uprawnień');
     this.router.navigate(['/home']);
+    this.alertify.error('nie masz uprawnień');
     return false;
   }
 }
