@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PortalRandkowy.API.Data;
 using PortalRandkowy.API.Dtos;
+using System;
 
 namespace PortalRandkowy.API.Controllers
 {
@@ -25,11 +26,13 @@ namespace PortalRandkowy.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var users = await _repo.GetUsers();
+                throw new Exception("my own error message");
 
-            var usrsReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+                var users = await _repo.GetUsers();
 
-            return Ok(usrsReturn);
+                var usrsReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+
+                return Ok(usrsReturn);
         }
 
         [HttpGet("{id}")]
