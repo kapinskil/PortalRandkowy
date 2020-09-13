@@ -26,8 +26,6 @@ namespace PortalRandkowy.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-                throw new Exception("my own error message");
-
                 var users = await _repo.GetUsers();
 
                 var usrsReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
