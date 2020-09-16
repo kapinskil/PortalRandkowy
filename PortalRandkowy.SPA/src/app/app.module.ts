@@ -22,6 +22,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/user-card/user-card.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 
@@ -54,7 +55,8 @@ export function tokenGetter(){
       }),
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      TabsModule.forRoot()
    ],
    providers: [
       AuthService,
