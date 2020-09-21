@@ -25,6 +25,7 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
 
 
@@ -58,7 +59,8 @@ export function tokenGetter(){
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
-      TabsModule.forRoot()
+      TabsModule.forRoot(),
+      NgxGalleryModule
    ],
    providers: [
       AuthService,
