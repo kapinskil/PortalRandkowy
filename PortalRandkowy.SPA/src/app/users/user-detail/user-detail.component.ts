@@ -18,16 +18,18 @@ export class UserDetailComponent implements OnInit {
               private route: ActivatedRoute  ) {}
 
   ngOnInit() {
-    this.loadUser();
-  }
-
-  loadUser() {
-    this.userServices.getUser(+this.route.snapshot.params.id)
-    .subscribe((user: User) => {
-      this.user = user;
-    }, error => {
-      this.alertify.error(error);
+    this.route.data.subscribe(data => {
+      this.user = data.user;
     });
   }
+
+  // loadUser() {
+  //   this.userServices.getUser(+this.route.snapshot.params.id)
+  //   .subscribe((user: User) => {
+  //     this.user = user;
+  //   }, error => {
+  //     this.alertify.error(error);
+  //   });
+  // }
 
 }
