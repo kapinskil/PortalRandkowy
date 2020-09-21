@@ -8,6 +8,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -16,6 +18,7 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
         {path: 'uzytkownicy', component: UserListComponent, resolve: {users: UserListResolver}},
+        {path: 'uzytkownicy/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
         {path: 'uzytkownicy/:id', component: UserDetailComponent, resolve: {user: UserDetailResolver}},
         {path: 'polubienia', component: LikesComponent},
         {path: 'wiadomości', component: MessagesComponent},

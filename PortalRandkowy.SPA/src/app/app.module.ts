@@ -26,6 +26,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
 
 
 
@@ -43,7 +45,8 @@ export function tokenGetter(){
       LikesComponent,
       MessagesComponent,
       UserCardComponent,
-      UserDetailComponent
+      UserDetailComponent,
+      UserEditComponent
    ],
    imports: [
       BrowserModule,
@@ -69,7 +72,8 @@ export function tokenGetter(){
       AuthGuard,
       ErrorInterceptorProvider,
       UserDetailResolver,
-      UserListResolver
+      UserListResolver,
+      UserEditResolver
    ],
    bootstrap: [
       AppComponent

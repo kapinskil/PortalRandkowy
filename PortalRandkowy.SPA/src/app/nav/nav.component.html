@@ -20,7 +20,7 @@
       </a>
     
       <div class="dropdown-menu mt-4" *dropdownMenu>
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edytuj profili</a>
+        <a class="dropdown-item" [routerLink]="['/uzytkownicy/edycja']" ><i class="fa fa-user"></i>Edytuj profili</a>
         <div class="dropdown-divaider"></div>
         <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Wyloguj</a>
       </div>
