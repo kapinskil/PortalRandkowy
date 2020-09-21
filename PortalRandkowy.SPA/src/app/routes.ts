@@ -18,7 +18,7 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
         {path: 'uzytkownicy', component: UserListComponent, resolve: {users: UserListResolver}},
-        {path: 'uzytkownicy/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
+        {path: 'uzytkownik/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
         {path: 'uzytkownicy/:id', component: UserDetailComponent, resolve: {user: UserDetailResolver}},
         {path: 'polubienia', component: LikesComponent},
         {path: 'wiadomości', component: MessagesComponent},
