@@ -36,6 +36,7 @@ namespace PortalRandkowy.API
             services.AddMvc();
             services.AddControllers().AddNewtonsoftJson(X=>{X.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;});
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>();
