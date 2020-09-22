@@ -10,6 +10,7 @@ import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,7 +19,9 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
         {path: 'uzytkownicy', component: UserListComponent, resolve: {users: UserListResolver}},
-        {path: 'uzytkownik/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
+        {path: 'uzytkownik/edycja', component: UserEditComponent,
+                                    resolve: {user: UserEditResolver},
+                                    canDeactivate: [PreventUnsavedChanges]},
         {path: 'uzytkownicy/:id', component: UserDetailComponent, resolve: {user: UserDetailResolver}},
         {path: 'polubienia', component: LikesComponent},
         {path: 'wiadomości', component: MessagesComponent},
