@@ -25,5 +25,11 @@ namespace PortalRandkowy.API.Data
             var users = await _context.Users.Include(p=>p.Photos).ToListAsync();
             return users;
         }
+
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var Photo = await _context.Photos.FirstAsync(p =>p.Id == id);
+            return Photo;
+        }
     }
 }
