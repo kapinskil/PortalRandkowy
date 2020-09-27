@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj": {}
+    "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj": {
+    "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
+        "projectUniqueName": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
         "projectName": "PortalRandkowy.API",
-        "projectPath": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
+        "projectPath": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
         "packagesPath": "C:\\Users\\kapin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\obj\\",
+        "outputPath": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

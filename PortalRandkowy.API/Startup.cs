@@ -80,7 +80,7 @@ namespace PortalRandkowy.API
                 }));
             }
 
-
+            
             seeder.SeedUsers();
             app.UseAuthentication();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());

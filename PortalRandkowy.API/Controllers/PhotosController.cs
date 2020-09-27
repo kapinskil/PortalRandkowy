@@ -11,20 +11,20 @@ using PortalRandkowy.API.Data;
 using PortalRandkowy.API.Dtos;
 using PortalRandkowy.API.Helpers;
 using PortalRandkowy.API.Models;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace PortalRandkowy.API.Controllers
 {
     [Authorize]
     [Route("api/users/{userId}/photos")]
     [ApiController]
-    public class PhotosController : ControllerBase
+    
+    public class PhotosController: ControllerBase
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
-
         private Cloudinary _cloudinary;
+
         public PhotosController(IUserRepository repository, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _cloudinaryConfig = cloudinaryConfig;
@@ -41,7 +41,7 @@ namespace PortalRandkowy.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userid, PhotoForCreationDto photoForCreationDto)
+        public async Task<IActionResult> AddPhotoForUser(int userid, [FromForm]PhotoForCreationDto photoForCreationDto)
         {
                if(userid != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -78,7 +78,8 @@ namespace PortalRandkowy.API.Controllers
             if (await  _repository.SaveAll())
             {
                 var photoToReturn = _mapper.Map<PhotoForRetuenDto>(photo);
-                return CreatedAtRoute("GetPhoto",new {id = photo.Id},photoToReturn);
+                //return CreatedAtRoute("GetPhoto", new { id = photo.Id}, photoToReturn);
+                return CreatedAtRoute("GetPhoto", new { userid, id = photo.Id}, photoToReturn);
             }
                 
 
