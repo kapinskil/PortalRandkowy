@@ -30,6 +30,7 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
 import { PhotosComponent } from './users/photos/photos.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -66,7 +67,8 @@ export function tokenGetter(){
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
-      NgxGalleryModule
+      NgxGalleryModule,
+      FileUploadModule
    ],
    providers: [
       AuthService,
