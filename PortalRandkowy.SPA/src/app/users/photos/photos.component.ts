@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -16,6 +16,8 @@ import { Photo } from '../../_models/Photo';
 export class PhotosComponent implements OnInit {
 
   @Input() photos: Photo[];
+  @Output() getUserPhotoChange = new EventEmitter<string>();
+
   uploader:FileUploader;
   hasBaseDropZoneOver;
   baseUrl = environment.apiUrl;
@@ -67,6 +69,7 @@ export class PhotosComponent implements OnInit {
       this.currentMain = this.photos.filter(p => p.isMain === true)[0];
       this.currentMain.isMain = false;
       photo.isMain = true;
+      this.getUserPhotoChange.emit(photo.url);
     }, error => {
       this.alertyfyService.error('Zdjęcie nie może zostać dodane');
     });

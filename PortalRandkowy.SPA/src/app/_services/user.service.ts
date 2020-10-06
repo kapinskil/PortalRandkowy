@@ -31,5 +31,7 @@ constructor(private http: HttpClient) { }
     return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {});
   }
 
+  
+
 }
 
