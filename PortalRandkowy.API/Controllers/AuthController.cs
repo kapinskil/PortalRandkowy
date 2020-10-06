@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 
 namespace PortalRandkowy.API.Controllers
 {
@@ -24,10 +25,13 @@ namespace PortalRandkowy.API.Controllers
     {
         private readonly IAuthRepository _repository;
         private readonly IConfiguration _configuration;
-        public AuthController(IAuthRepository repository, IConfiguration configuration) 
+        private readonly IMapper _mapper;
+
+        public AuthController(IAuthRepository repository, IConfiguration configuration, IMapper mapper) 
         {
             _repository = repository;
             _configuration = configuration;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
@@ -78,8 +82,13 @@ namespace PortalRandkowy.API.Controllers
 
             var tokenHendler = new JwtSecurityTokenHandler();
             var token = tokenHendler.CreateToken(tokienDescriptor);
+            var user = _mapper.Map<UserForListDto>(userFromRepo);
 
-            return Ok(new { token = tokenHendler.WriteToken(token)});
+            return Ok(new 
+            { 
+                token = tokenHendler.WriteToken(token),
+                user
+            });
         }
     }
 }
