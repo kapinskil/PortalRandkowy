@@ -24,6 +24,7 @@ export class AppComponent  implements OnInit{
     }
     if(user){
       this.aouthService.currentUser = user;
+      this.aouthService.changeUserPhoto(user.photoUrl);
     }
   }
 }
