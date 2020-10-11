@@ -2,6 +2,7 @@ import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { AuthService } from 'src/app/_services/auth.service';
+import { ErrorIncerteptor } from 'src/app/_services/error.interceptor';
 import { UserService } from 'src/app/_services/user.service';
 import { environment } from 'src/environments/environment';
 import { Photo } from '../../_models/Photo';
@@ -74,6 +75,17 @@ export class PhotosComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
     }, error => {
       this.alertyfyService.error('Zdjęcie nie może zostać dodane');
+    });
+  }
+
+  deletePhoto(id: number) {
+    this.alertyfyService.confirm('Czy na pewno chcesz usunąć zdjęcie?', () => {
+      this.userService.deletePhoto(this.authService.decodeToken.nameid, id).subscribe(() => {
+        this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+        this.alertyfyService.success('zdjęcie zostało usunięte'); 
+      }, error => {
+        this.alertyfyService.error('nie udąło się usunąć zdjęcia');
+      });
     });
   }
 }
