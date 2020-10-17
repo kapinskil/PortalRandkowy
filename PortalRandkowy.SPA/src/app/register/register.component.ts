@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BsDaterangepickerConfig } from 'ngx-bootstrap/datepicker';
 
 
 @Component({
@@ -15,10 +16,14 @@ export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
   registerForm: FormGroup;
+  bsConfig: Partial<BsDaterangepickerConfig>;
 
   constructor(private authService: AuthService, private alertify: AlertifyService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-blue'
+    },
     this.createRegisterForm();
   }
 

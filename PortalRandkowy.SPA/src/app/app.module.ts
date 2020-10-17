@@ -31,7 +31,7 @@ import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
 import { PhotosComponent } from './users/photos/photos.component';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 export function tokenGetter(){
@@ -69,7 +69,8 @@ export function tokenGetter(){
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       NgxGalleryModule,
-      FileUploadModule
+      FileUploadModule,
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       AuthService,
