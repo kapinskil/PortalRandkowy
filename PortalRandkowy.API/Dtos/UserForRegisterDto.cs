@@ -15,7 +15,7 @@ namespace PortalRandkowy.API.Dtos
         [Required]
         public DateTime DateOfBirth {get;set;}
         [Required]
-        public string ZodiacSing {get;set;}
+        public string ZodiacSign {get;set;}
         [Required]
         public string City {get;set;}
         [Required]
