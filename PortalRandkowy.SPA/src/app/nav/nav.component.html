@@ -16,7 +16,7 @@
 
     <div *ngIf="loggedin()" class="dropdown" dropdown>
       <span class="mr-2">
-        <img class="navImg" src="{{photoUrl}}">
+        <img class="navImg" src="{{photoUrl || '../../../../assets/user.png'}}">
       </span>
       <a class="dropdown-toggle text-light" dropdownToggle>
         Witaj {{authService.decodeToken?.unique_name | titlecase }}
