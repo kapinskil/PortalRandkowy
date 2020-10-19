@@ -32,6 +32,8 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
 import { PhotosComponent } from './users/photos/photos.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimeAgoPipe } from './_pipes/time-ago-pipe';
+
 
 
 export function tokenGetter(){
@@ -39,7 +41,7 @@ export function tokenGetter(){
 }
 
 @NgModule({
-   declarations: [		
+   declarations: [			
       AppComponent,
       NavComponent,
       HomeComponent,
@@ -50,7 +52,8 @@ export function tokenGetter(){
       UserCardComponent,
       UserDetailComponent,
       UserEditComponent,
-      PhotosComponent
+      PhotosComponent,
+      TimeAgoPipe
    ],
    imports: [
       BrowserModule,
