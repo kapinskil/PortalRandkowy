@@ -7,9 +7,11 @@ using PortalRandkowy.API.Data;
 using PortalRandkowy.API.Dtos;
 using System;
 using System.Security.Claims;
+using PortalRandkowy.API.Helpers;
 
 namespace PortalRandkowy.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     //http://localhost:5000/api
     [Route("api/[controller]")]
