@@ -27,11 +27,13 @@ namespace PortalRandkowy.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {
-                var users = await _repo.GetUsers();
+                var users = await _repo.GetUsers(userParams);
 
                 var usrsReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+
+                Response.AddPagination(users.CurrentPage, users.CurrentPage, users.TotalCount, users.TotalPages);
 
                 return Ok(usrsReturn);
         }
