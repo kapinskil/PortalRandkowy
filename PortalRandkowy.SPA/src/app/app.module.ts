@@ -33,7 +33,7 @@ import { PhotosComponent } from './users/photos/photos.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from './_pipes/time-ago-pipe';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 export function tokenGetter(){
@@ -73,6 +73,7 @@ export function tokenGetter(){
       TabsModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
+      PaginationModule.forRoot(),
       BsDatepickerModule.forRoot()
    ],
    providers: [

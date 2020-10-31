@@ -11,8 +11,7 @@ import { UserService } from '../_services/user.service';
 export class UserListResolver implements Resolve<User[]> {
     
     pageNumber = 1;
-    pageSize = 36;
-
+    pageSize = 100;
 
     constructor(private userService: UserService,
                 private router: Router,

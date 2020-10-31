@@ -27,18 +27,18 @@ constructor(private http: HttpClient) { }
       params = params.append('pageSize', itemsPerPage);
     }
 
-    return this.http.get<User[]>(this.baseUrl + 'users',{observe: 'response', params})
-      .pipe(
-        map(response => {
-          paginationResult.result = response.body;
+    return this.http.get<User[]>(this.baseUrl + 'users', { observe: 'response', params })
+    .pipe(
+      map(response => {
+        paginationResult.result = response.body;
 
-          if(response.headers.get('Pagination') != null) {
-            paginationResult.pagination = JSON.parse(response.headers.get('Pagination'))
-          }
-          
-          return paginationResult;
-        })
-      )
+        if (response.headers.get('Pagination') != null) {
+          paginationResult.pagination = JSON.parse(response.headers.get('Pagination'));
+        }
+
+        return paginationResult;
+      })
+    );
   }
 
   getUser(id: number): Observable<User> {
