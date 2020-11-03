@@ -14,17 +14,16 @@ export class UserListResolver implements Resolve<User[]> {
     pageSize = 100;
 
     constructor(private userService: UserService,
-                private router: Router,
-                private alertyfyService: AlertifyService) {}
+        private router: Router,
+        private alertify: AlertifyService) {}
 
-
-    resolve(route: ActivatedRouteSnapshot): Observable<User[]> {
-       return this.userService.getUsers(this.pageNumber, this.pageSize).pipe(
-           catchError(error => {
-            this.alertyfyService.error('problem z pobieraniem danych');
-            this.router.navigate(['/home']);
-            return of(null);
-           })
-       );
+        resolve(route: ActivatedRouteSnapshot): Observable<User[]> {
+        return this.userService.getUsers(this.pageNumber, this.pageSize).pipe(
+        catchError(error => {
+        this.alertify.error('Problem z pobraniem danych');
+        this.router.navigate(['']);
+        return of(null);
+    })
+);
     }
 }

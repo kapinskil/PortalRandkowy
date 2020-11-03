@@ -38,7 +38,7 @@ namespace PortalRandkowy.API.Data
             }
 
 
-            if(userParams.ZodiacSign != null)
+            if(userParams.ZodiacSign != "Wszystkie")
             {
                 users = users.Where(u => u.ZodiacSign == userParams.ZodiacSign);
             }
