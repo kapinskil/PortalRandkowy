@@ -34,7 +34,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from './_pipes/time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -56,6 +56,7 @@ export function tokenGetter(){
       TimeAgoPipe
    ],
    imports: [
+      ButtonsModule.forRoot(),
       BrowserModule,
       HttpClientModule,
       FormsModule,

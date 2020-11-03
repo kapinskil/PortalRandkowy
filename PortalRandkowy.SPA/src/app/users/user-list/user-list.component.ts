@@ -44,6 +44,7 @@ export class UserListComponent implements OnInit {
     this.userParams.zodiacSign = 'Wszystkie';
     this.userParams.minAge = 18;
     this.userParams.maxAge = 100;
+    this.userParams.orderBy = 'lastActive';
   }
 
   pageChanged(event: any): void {
@@ -55,7 +56,9 @@ export class UserListComponent implements OnInit {
     this.userParams.gender = this.user.gender === 'kobieta' ? 'mężczyzna' : 'kobieta';
     this.userParams.zodiacSign = 'Wszystkie';
     this.userParams.minAge = 18;
-    this.userParams.maxAge =100;
+    this.userParams.maxAge = 100;
+    this.userParams.orderBy = 'lastActive';
+
     this.loadUsers();
   }
 
