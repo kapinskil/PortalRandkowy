@@ -19,5 +19,8 @@ namespace PortalRandkowy.API.Helpers
         public string ZodiacSign { get; set; } = "Wszystkie";
 
         public string OrderBy { get; set; }
+
+        public bool UserLikes { get; set; } = false;
+        public bool UserIsLiked { get; set; } = false;
     }
 }
