@@ -13,6 +13,8 @@ namespace PortalRandkowy.API.Data
         public DbSet<Photo> Photos {get;set;}
         public DbSet<Like> Likes { get; set; }
 
+        public DbSet<Message> Messages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Like>().HasKey(k => new { k.UserLikesId, k.UserIsLikedId });
@@ -27,6 +29,14 @@ namespace PortalRandkowy.API.Data
                                   .HasForeignKey(u => u.UserLikesId)
                                   .OnDelete(DeleteBehavior.Restrict);
             
-        }
+            builder.Entity<Message>().HasOne(u => u.Sender)
+                                    .WithMany(m => m.MessagesSend)
+                                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Message>().HasOne(u => u.Recipient)
+                                    .WithMany(m => m.MessagesRecived)
+                                    .OnDelete(DeleteBehavior.Restrict);
+        }   
+
     }
 }
