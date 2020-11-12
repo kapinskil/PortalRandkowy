@@ -35,6 +35,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from './_pipes/time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { LikesResolver } from './_resolvers/likes.resolver';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -86,7 +87,8 @@ export function tokenGetter(){
       UserDetailResolver,
       UserListResolver,
       UserEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      LikesResolver
    ],
    bootstrap: [
       AppComponent
