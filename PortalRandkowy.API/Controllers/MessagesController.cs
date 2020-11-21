@@ -58,9 +58,10 @@ namespace PortalRandkowy.API.Controllers
             var message = _mapper.Map<Message>(messageForCreationDto);
 
             _repository.Add(message);
+            var messageToReturn = _mapper.Map<MessageForCreationDto>(message);
 
             if(await _repository.SaveAll())
-                return CreatedAtRoute(nameof(GetMessage), new {userId, id = message.Id}, message);
+                return CreatedAtRoute(nameof(GetMessage), new {userId, id = message.Id}, messageToReturn);
             
             throw new Exception("Utworzeniew wiadomości nie powiodło się przy zapisie");
         
