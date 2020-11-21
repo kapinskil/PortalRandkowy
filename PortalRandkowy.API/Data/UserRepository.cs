@@ -108,9 +108,30 @@ namespace PortalRandkowy.API.Data
             return await _context.Messages.FirstOrDefaultAsync(m => m.Id ==id);
         }
 
-        public Task<PagedList<Message>> GetMessagesForUser()
+        public async Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams)
         {
-            throw new NotImplementedException();
+            var messages = _context.Messages.Include(u => u.Sender).ThenInclude(p => p.Photos)
+                                             .Include(u => u.Recipient).ThenInclude(p => p.Photos).AsQueryable();
+
+            switch(messageParams.MessageContener)
+            {
+                case "Inbox":
+                    messages = messages.Where(u => u.RecipientId == messageParams.UserId);
+                    break;
+
+                case "outbox":
+                    messages = messages.Where(u => u.SenderId == messageParams.UserId);
+                    break;
+
+                default:
+                    messages = messages.Where(u => u.RecipientId == messageParams.UserId && u.Isread == false);
+                    break;
+            }
+
+            messages = messages.OrderByDescending(d => d.DateSend);
+
+            return await PagedList<Message>.CreateLIstAsync(messages, messageParams.PageNumber, messageParams.PageSize);
+                                           
         }
 
         public Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId)
