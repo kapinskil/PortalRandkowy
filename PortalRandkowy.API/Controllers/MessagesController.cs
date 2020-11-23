@@ -9,6 +9,7 @@ using System;
 using System.Security.Claims;
 using PortalRandkowy.API.Helpers;
 using PortalRandkowy.API.Models;
+using System.Web;
 
 namespace PortalRandkowy.API.Controllers
 {
@@ -41,6 +42,21 @@ namespace PortalRandkowy.API.Controllers
             
             return Ok(messageFromRepo);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetMessagesForUser(int userId, [FromQuery]MessageParams messageParams)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            messageParams.UserId = userId;
+            var messagesFromRepo = await _repository.GetMessagesForUser(messageParams);
+            var messagesToReturn = _mapper.Map<IEnumerable<MessageToReturnDTO>>(messagesFromRepo);
+
+            Response.AddPagination(messagesFromRepo.CurrentPage, messagesFromRepo.CurrentPage, messagesFromRepo.TotalCount, messagesFromRepo.TotalPages);
+
+            return Ok(messagesToReturn);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateMessage(int userId, MessageForCreationDto messageForCreationDto)

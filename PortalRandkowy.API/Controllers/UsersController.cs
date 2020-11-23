@@ -10,6 +10,7 @@ using System.Security.Claims;
 using PortalRandkowy.API.Helpers;
 using PortalRandkowy.API.Models;
 
+
 namespace PortalRandkowy.API.Controllers
 {
     [ServiceFilter(typeof(LogUserActivity))]
@@ -44,7 +45,7 @@ namespace PortalRandkowy.API.Controllers
                 var users = await _repo.GetUsers(userParams);
 
                 var usrsReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
-
+                
                 Response.AddPagination(users.CurrentPage, users.CurrentPage, users.TotalCount, users.TotalPages);
 
                 return Ok(usrsReturn);

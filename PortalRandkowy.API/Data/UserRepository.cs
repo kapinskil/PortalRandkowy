@@ -119,7 +119,7 @@ namespace PortalRandkowy.API.Data
                     messages = messages.Where(u => u.RecipientId == messageParams.UserId);
                     break;
 
-                case "outbox":
+                case "Outbox":
                     messages = messages.Where(u => u.SenderId == messageParams.UserId);
                     break;
 
