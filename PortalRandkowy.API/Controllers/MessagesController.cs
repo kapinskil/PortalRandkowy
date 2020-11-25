@@ -28,22 +28,22 @@ namespace PortalRandkowy.API.Controllers
             _mapper = mapper;
             _repository = repository;
         }
-        
+
         [HttpGet("{id}", Name = "GetMessage")]
         public async Task<IActionResult> GetMessage(int userId, int id)
         {
-            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
-            
+
             var messageFromRepo = await _repository.GetMessage(id);
 
-            if(messageFromRepo == null)
+            if (messageFromRepo == null)
                 return NotFound();
-            
+
             return Ok(messageFromRepo);
         }
         [HttpGet]
-        public async Task<IActionResult> GetMessagesForUser(int userId, [FromQuery]MessageParams messageParams)
+        public async Task<IActionResult> GetMessagesForUser(int userId, [FromQuery] MessageParams messageParams)
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -56,6 +56,18 @@ namespace PortalRandkowy.API.Controllers
 
             return Ok(messagesToReturn);
         }
+
+        [HttpGet("thred/{recipientId}")]
+        public async Task<IActionResult> GetMessageThred(int userId, int recipientId)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+            var messagesFromRepo = await _repository.GetMessageThread(userId, recipientId);
+            var messageThred = _mapper.Map<IEnumerable<MessageToReturnDTO>>(messagesFromRepo);
+
+            return Ok(messageThred);
+        }
+
 
 
         [HttpPost]

@@ -36,6 +36,7 @@ import { TimeAgoPipe } from './_pipes/time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { LikesResolver } from './_resolvers/likes.resolver';
+import { MessagesResolver } from './_resolvers/message-resolver';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -88,7 +89,8 @@ export function tokenGetter(){
       UserListResolver,
       UserEditResolver,
       PreventUnsavedChanges,
-      LikesResolver
+      LikesResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent
