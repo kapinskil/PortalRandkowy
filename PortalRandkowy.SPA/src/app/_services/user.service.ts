@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../_models/User';
 import { PaginationResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Message } from '../_models/message';
 
 @Injectable({
   providedIn: 'root'

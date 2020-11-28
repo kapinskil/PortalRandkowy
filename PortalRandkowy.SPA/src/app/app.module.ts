@@ -37,6 +37,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { LikesResolver } from './_resolvers/likes.resolver';
 import { MessagesResolver } from './_resolvers/message-resolver';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 export function tokenGetter(){
    return localStorage.getItem('token');

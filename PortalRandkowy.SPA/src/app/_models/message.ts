@@ -3,14 +3,16 @@ import { NodeCompatibleEventEmitter } from 'rxjs/internal/observable/fromEvent';
 export interface Message {
     id: number;
     senderId: number;
-    senderUserName: string;
+    senderUsername: string;
     senderPhotoUrl: string;
-
     recipientId: number;
-    recipientUserName: string;
-    recipientPhotoUtl: string;
+    recipientUsername: string;
+    recipientPhotoUrl: string;
     content: string;
-    IsRead: boolean;
+    isRead: boolean;
     dateRead: Date;
     dateSend: Date;
+    messageContainer: string;
 }
+
+
