@@ -6,9 +6,9 @@
   </div>
   
   <div class="card-img-wrapper">
-    <img src="{{user.photoUrl}}" class="card-img-top" alt="{{user.username}}">
+    <img src="{{user.photoUrl || '../../../../assets/user.png'}}" class="card-img-top" alt="{{user.username}}">
     <ul class="list-inline text-center user-icons animate">
-      <li class="list-inline-item">
+      <li class="list-inline-item" (click)=" sendLike(user.id)">
         <button class="btn btn-warning btn-sm">
           <i class="fa fa-heart"></i>
         </button>

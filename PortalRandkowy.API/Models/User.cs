@@ -56,6 +56,10 @@ namespace PortalRandkowy.API.Models
 
         // Zakładka zdjecia
         public ICollection<Photo> Photos { get; set; }      // Zdjęcia użytkownika
- 
+
+        public ICollection<Like> UserLikes { get; set; }    // uzytkownik lubi
+        public ICollection<Like> UserIsLiked { get; set; }  // uzytkownik jest lubiany
+        public ICollection<Message> MessagesSend {get;set;}
+        public ICollection<Message> MessagesRecived {get;set;}
     }
 }

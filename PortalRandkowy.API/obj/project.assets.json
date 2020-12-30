@@ -5303,21 +5303,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kapin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\kapin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
+      "projectUniqueName": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
       "projectName": "PortalRandkowy.API",
-      "projectPath": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
+      "projectPath": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\PortalRandkowy.API.csproj",
       "packagesPath": "C:\\Users\\kapin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\obj\\",
+      "outputPath": "C:\\Users\\kapin\\source\\repos\\PortalRandkowy\\PortalRandkowy.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\kapin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -5331,6 +5327,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "projectReferences": {}
         }
       },
@@ -5342,6 +5339,7 @@
     },
     "frameworks": {
       "netcoreapp3.0": {
+        "targetAlias": "netcoreapp3.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
@@ -5418,7 +5416,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

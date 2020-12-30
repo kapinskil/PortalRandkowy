@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { appRoutes } from './routes';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -29,15 +29,22 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
-
-
+import { PhotosComponent } from './users/photos/photos.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimeAgoPipe } from './_pipes/time-ago-pipe';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { LikesResolver } from './_resolvers/likes.resolver';
+import { MessagesResolver } from './_resolvers/message-resolver';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
 }
 
 @NgModule({
-   declarations: [		
+   declarations: [			
       AppComponent,
       NavComponent,
       HomeComponent,
@@ -47,12 +54,16 @@ export function tokenGetter(){
       MessagesComponent,
       UserCardComponent,
       UserDetailComponent,
-      UserEditComponent
+      UserEditComponent,
+      PhotosComponent,
+      TimeAgoPipe
    ],
    imports: [
+      ButtonsModule.forRoot(),
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
@@ -64,7 +75,10 @@ export function tokenGetter(){
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
-      NgxGalleryModule
+      NgxGalleryModule,
+      FileUploadModule,
+      PaginationModule.forRoot(),
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       AuthService,
@@ -75,7 +89,9 @@ export function tokenGetter(){
       UserDetailResolver,
       UserListResolver,
       UserEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      LikesResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent

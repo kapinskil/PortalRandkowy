@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 
 namespace PortalRandkowy.API.Controllers
 {
@@ -24,10 +25,13 @@ namespace PortalRandkowy.API.Controllers
     {
         private readonly IAuthRepository _repository;
         private readonly IConfiguration _configuration;
-        public AuthController(IAuthRepository repository, IConfiguration configuration) 
+        private readonly IMapper _mapper;
+
+        public AuthController(IAuthRepository repository, IConfiguration configuration, IMapper mapper) 
         {
             _repository = repository;
             _configuration = configuration;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
@@ -39,14 +43,13 @@ namespace PortalRandkowy.API.Controllers
              if(await _repository.UserExists(userForRegisterDto.UserName))
                 return BadRequest("Użytkownik o takiej nazwie już istnieje");
 
-            var userToCreate = new User
-            {
-                Username = userForRegisterDto.UserName,
-            };
+            var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
             var creareduser = await _repository.Register(userToCreate,userForRegisterDto.Password);
+            
+            var userToReturn = _mapper.Map<UserForDetailsDto>(creareduser);
 
-            return StatusCode(201);
+            return CreatedAtRoute("GetUser", new {Controller = "Users", Id = creareduser.Id}, userToReturn );
         }
 
         [HttpPost("login")]
@@ -78,8 +81,13 @@ namespace PortalRandkowy.API.Controllers
 
             var tokenHendler = new JwtSecurityTokenHandler();
             var token = tokenHendler.CreateToken(tokienDescriptor);
+            var user = _mapper.Map<UserForListDto>(userFromRepo);
 
-            return Ok(new { token = tokenHendler.WriteToken(token)});
+            return Ok(new 
+            { 
+                token = tokenHendler.WriteToken(token),
+                user
+            });
         }
     }
 }

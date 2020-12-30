@@ -16,6 +16,60 @@ namespace PortalRandkowy.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.4");
 
+            modelBuilder.Entity("PortalRandkowy.API.Models.Like", b =>
+                {
+                    b.Property<int>("UserLikesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserIsLikedId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserLikesId", "UserIsLikedId");
+
+                    b.HasIndex("UserIsLikedId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("PortalRandkowy.API.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("DateRead")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateSend")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Isread")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("RecipientDelete")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RecipientId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("SenderDelete")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipientId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("PortalRandkowy.API.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -166,6 +220,36 @@ namespace PortalRandkowy.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("PortalRandkowy.API.Models.Like", b =>
+                {
+                    b.HasOne("PortalRandkowy.API.Models.User", "UserIsLiked")
+                        .WithMany("UserLikes")
+                        .HasForeignKey("UserIsLikedId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("PortalRandkowy.API.Models.User", "UserLikes")
+                        .WithMany("UserIsLiked")
+                        .HasForeignKey("UserLikesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PortalRandkowy.API.Models.Message", b =>
+                {
+                    b.HasOne("PortalRandkowy.API.Models.User", "Recipient")
+                        .WithMany("MessagesRecived")
+                        .HasForeignKey("RecipientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("PortalRandkowy.API.Models.User", "Sender")
+                        .WithMany("MessagesSend")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PortalRandkowy.API.Models.Photo", b =>

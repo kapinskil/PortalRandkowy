@@ -11,7 +11,6 @@ using PortalRandkowy.API.Models;
 
 namespace PortalRandkowy.API.Controllers
 {
-    [Authorize]
     [ApiController]
     //http://localhost:5000/api
     [Route("api/[controller]")]
@@ -24,7 +23,7 @@ namespace PortalRandkowy.API.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {

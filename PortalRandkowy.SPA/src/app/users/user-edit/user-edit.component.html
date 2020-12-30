@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-sm-4">
         <div class="card">
-            <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt={{user.username}}>
+            <img class="card-img-top img-thumbnail" src="{{photoUrl || '../../../../assets/user.png'}}" alt={{user.username}}>
             <div class="card-body">
                 <div>
                   <strong>Znak zodjaku:</strong>
@@ -32,11 +32,11 @@
                 </div>
                 <div>
                   <strong>Ostatnia aktywność:</strong>
-                  <p>{{user.lastActive}}</p>
+                  <p>{{user.lastActive | date  | timeAgo}}</p>
                 </div>
                 <div>
                   <strong>Użytkownik od:</strong>
-                  <p>{{user.created}}</p>
+                  <p>{{user.created | date: 'longDate'}}</p>
                 </div>
             </div>
             <div class="card-footer">
@@ -138,7 +138,7 @@
             <textarea class="form-controler" name="friendeWouldDescribeMe" rows="4" [(ngModel)]="user.friendeWouldDescribeMe"></textarea>
           </tab>
           <tab heading="Zdjęcia">
-            <p>Edycja zdjęć do zrobienia</p>
+              <app-photos [photos] ="user.photos" (getUserPhotoChange)="updateMainPhoto($event)"></app-photos>
           </tab>
         </tabset>
        </div>
